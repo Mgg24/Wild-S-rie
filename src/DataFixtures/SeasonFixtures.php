@@ -14,9 +14,9 @@
         {
             $faker = Factory::create();
 
-            for ($i = 0; $i < 5; $i++) {
+            for ($i = 0; $i < 6; $i++) {
                 $season = new Season();
-                $season->setNumber($faker->numberBetween($i +1));
+                $season->setNumber($faker->numberBetween($i + 1));
                 $season->setYear($faker->year());
                 $season->setDescription($faker->paragraph(3, true));
                 $season->setProgram($this->getReference('program_' . $i));

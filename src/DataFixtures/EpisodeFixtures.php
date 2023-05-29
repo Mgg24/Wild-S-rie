@@ -52,50 +52,18 @@
         }*/
             $faker = Factory::create();
 
-            for ($i = 0; $i < 10; $i++) {
+
+            for ($i = 0; $i < 11; $i++) {
                 $episode = new Episode();
-                $episode->setSeason($this->getReference('season_1'));
+                $seasonReference= $this->getReference('season_' . $faker->numberBetween(0,5));
+                $episode->setSeason($seasonReference);
                 $episode->setTitle($faker->sentence);
                 $episode->setNumber($i + 1);
                 $episode->setSynopsis($faker->paragraph);
                 $manager->persist($episode);
             }
 
-            for ($i = 0; $i < 10; $i++) {
-                $episode = new Episode();
-                $episode->setSeason($this->getReference('season_2'));
-                $episode->setTitle($faker->sentence);
-                $episode->setNumber($i + 1);
-                $episode->setSynopsis($faker->paragraph);
-                $manager->persist($episode);
-            }
 
-            for ($i = 0; $i < 10; $i++) {
-                $episode = new Episode();
-                $episode->setSeason($this->getReference('season_3'));
-                $episode->setTitle($faker->sentence);
-                $episode->setNumber($i + 1);
-                $episode->setSynopsis($faker->paragraph);
-                $manager->persist($episode);
-            }
-
-            for ($i = 0; $i < 10; $i++) {
-                $episode = new Episode();
-                $episode->setSeason($this->getReference('season_4'));
-                $episode->setTitle($faker->sentence);
-                $episode->setNumber($i + 1);
-                $episode->setSynopsis($faker->paragraph);
-                $manager->persist($episode);
-            }
-
-            for ($i = 0; $i < 10; $i++) {
-                $episode = new Episode();
-                $episode->setSeason($this->getReference('season_0'));
-                $episode->setTitle($faker->sentence);
-                $episode->setNumber($i + 1);
-                $episode->setSynopsis($faker->paragraph);
-                $manager->persist($episode);
-            }
 
             $manager->flush();
         }
